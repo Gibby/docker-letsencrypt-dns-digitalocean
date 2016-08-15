@@ -58,7 +58,7 @@ function clean_challenge {
         SUBDOMAIN=''
     fi 
 
-    record_id=`doctl compute domain records list ${DOMAIN} | grep "_acme-challenge.${SUBDOMAIN}" | grep "${TOKEN_VALUE}" | awk '{print $1}'`
+    record_id=`doctl compute domain records list ${DOMAIN} | grep "_acme-challenge.${SUBDOMAIN}" | sed -nr "/${TOKEN_VALUE}/p" | awk '{print $1}'`
     doctl compute domain records delete ${DOMAIN} ${record_id}
 
     # This hook is called after attempting to validate each domain,
