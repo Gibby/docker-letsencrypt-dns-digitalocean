@@ -30,7 +30,9 @@ fi
 export ODIR=${ODIR:-"/srv/letsencrypt/certs/"}
 
 # Put key in place for doctl
-echo "access-token: ${TOKEN}" > ${HOME}/.doctlcfg
+mkdir -p /root/.config/doctl
+echo "access-token: ${TOKEN}" > /root/.config/doctl/config.yaml
+chmod 0600 /root/.config/doctl/config.yaml 
 
 cmd="/srv/letsencrypt/letsencrypt.sh --cron --hook /srv/letsencrypt/letsencrypt.default.sh --challenge dns-01 --out ${ODIR}"
 

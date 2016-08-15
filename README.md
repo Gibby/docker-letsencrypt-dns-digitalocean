@@ -20,19 +20,19 @@ This is a simple container to get certificates from [letsencrypt](https://letsen
 
 ## Staging run example
     docker run \
-    -e "DOMAINS=foo.com test.foo.com"
+    -e "DOMAINS=foo.com test.foo.com" \
     -e "TOKEN=xxxxx" \
     -v ${HOME}/letsencrypt-dns:/mnt \
-    -e "ODIR=/mnt/certs"
+    -e "ODIR=/mnt/certs" \
     gibby/letsencrypt-dns-digitalocean
 
 ## Live run example
     docker run \
-    -e "DOMAINS=foo.com test.foo.com"
+    -e "DOMAINS=foo.com test.foo.com" \
     -e "TOKEN=xxxxx" \
     -v ${HOME}/letsencrypt-dns:/mnt \
-    -e "ODIR=/mnt/certs"
-    -e "STAGING=no"
+    -e "ODIR=/mnt/certs" \
+    -e "STAGING=no" \
     gibby/letsencrypt-dns-digitalocean
 
 ## Changelog
