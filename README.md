@@ -27,7 +27,7 @@ This is a simple container to get certificates from [letsencrypt](https://letsen
     gibby/letsencrypt-dns-digitalocean
 
 ## Live run example
-    docker run \
+    docker run -d \
     -e "DOMAINS=foo.com test.foo.com" \
     -e "TOKEN=xxxxx" \
     -v ${HOME}/letsencrypt-dns:/mnt \
